@@ -33,5 +33,11 @@ library(reshape2)
 dataMelt <- melt(meanAndStd, id=c("activity","subject"), measure.vars=names(meanAndStd)[1:86])
 tidyAverages <- dcast(dataMelt, activity+subject ~ variable, mean)
 
+# Make variable names more readable by
+# replacing consecutive periods with single period
+names(tidyAverages) <- gsub(pattern="[.]+", replacement=".", names(tidyAverages))
+# removing periods at the end of the name
+names(tidyAverages) <- gsub(pattern="[.]$", replacement="", names(tidyAverages))
+
 # Write resulting tidy data to file
 write.table(tidyAverages, file="tidyAverages.txt", row.name=FALSE)
