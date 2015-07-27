@@ -26,7 +26,7 @@ A specific description of the tidy data file contents is available in the CodeBo
 
 The resulting tidy data will be output to file "tidyAverages.txt" in the working directory, which can be read into and displayed in R with:
 
-data <- read.table("file_path",header=TRUE)
+data <- read.table("file_path",header=TRUE)  
 View(data)
 
 ### Script Walkthrough
